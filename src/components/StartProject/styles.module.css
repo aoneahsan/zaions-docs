@@ -1,0 +1,57 @@
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 2rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--z-tap);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--z-radius-control);
+  font-family: var(--z-font-display);
+  font-weight: 640;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 200ms var(--z-ease),
+    border-color 200ms var(--z-ease),
+    color 200ms var(--z-ease);
+}
+
+.primary {
+  background: var(--z-accent);
+  color: var(--z-on-accent);
+  border: 1px solid var(--z-accent);
+}
+
+.primary:hover {
+  background: var(--z-accent-hover);
+  border-color: var(--z-accent-hover);
+  color: var(--z-on-accent);
+  text-decoration: none;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--z-ink);
+  border: 1px solid var(--z-line-strong);
+}
+
+.secondary:hover {
+  border-color: var(--z-accent-ink);
+  color: var(--z-accent-ink);
+  text-decoration: none;
+}
+
+@media (max-width: 420px) {
+  .primary,
+  .secondary {
+    flex: 1 1 100%;
+  }
+}

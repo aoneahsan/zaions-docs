@@ -1,0 +1,54 @@
+{
+  "common.updatedOn": {
+    "message": "Page updated {date}.",
+    "description": "Page footer line naming the date the page last changed (Bible §7 term)"
+  },
+  "common.newTab": {
+    "message": "(opens in a new tab)",
+    "description": "Screen-reader suffix on every external link"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(opens in a new tab)",
+    "description": "The ARIA label for the external link icon"
+  },
+  "cta.start": {
+    "message": "Start a project",
+    "description": "Primary call to action, matches cta.start on zaions.com"
+  },
+  "cta.consult": {
+    "message": "Book a free consultation",
+    "description": "Secondary call to action, matches cta.consult on zaions.com"
+  },
+  "theme.NotFound.title": {
+    "message": "This page isn't here.",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "The link may be out of date, or the address mistyped. Try one of these instead.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "states.notFound.linksLabel": {
+    "message": "Where next",
+    "description": "aria-label on the 404 link list"
+  },
+  "states.notFound.home": {
+    "message": "Back to home",
+    "description": "404 link to the docs home"
+  },
+  "nav.packages": {
+    "message": "Packages",
+    "description": "Link to the Packages page"
+  },
+  "nav.services": {
+    "message": "Services",
+    "description": "Link to the services on zaions.com"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Skip to content",
+    "description": "The skip to content label used for accessibility"
+  },
+  "theme.SearchBar.label": {
+    "message": "Search",
+    "description": "The ARIA label and placeholder for search button"
+  }
+}

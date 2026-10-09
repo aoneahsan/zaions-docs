@@ -1,0 +1,81 @@
+---
+title: Open-source cleanup tools for developers
+sidebar_label: Open-source tools
+description: 'Three MIT-licensed disk cleanup tools for developers from the Zaions team: windowsweep for Windows, macleanup for macOS and linux-cleanup for Linux.'
+slug: /open-source
+sidebar_position: 7
+---
+
+# Open-source tools
+
+Three of our tools are open source, one per operating system: windowsweep for Windows, macleanup for macOS
+and linux-cleanup for Linux. Each reclaims disk space a developer's machine loses to caches and build
+leftovers, and each is MIT-licensed in a public repository you can read line by line. Both windowsweep and
+macleanup name every path before touching it. On Linux, linux-cleanup asks before each category, and
+`--scan` prints every target first.
+
+Client work stays private unless the client asks us to show it. These three are our own.
+
+<StartProject />
+
+## Why do these tools exist?
+
+To clear the places a system cleaner doesn't know about: package caches, build caches, emulator images,
+`node_modules` for a project you finished months ago. Clearing them by hand means keeping your own list of
+paths and remembering which ones are safe. These tools carry that list, and they're careful by design: each
+one deletes files, and each README says plainly which deletions can't be undone.
+
+## For Windows: windowsweep
+
+A developer-aware cleanup tool for Windows 10 (1809 and later) and Windows 11. It runs with nothing to
+install through `npx windowsweep`, refuses personal folders outright, never follows a junction (a folder shortcut that points elsewhere on the
+disk), and by default
+keeps any cache you've used in the last 100 days. Start with `npx windowsweep --scan`, which deletes nothing.
+The command-line tool makes no network calls at all.
+
+It also ships as a Windows desktop app: a window that drives the same engine, released as `.exe` and `.msi`
+installers.
+
+Two limits.
+
+The installer isn't signed with a paid code-signing certificate, so Windows SmartScreen warns the first time
+it runs; every release carries a signature the app's own updater checks, plus a SHA-256 checksum, a
+fingerprint of the file that shows it hasn't changed. And unlike
+the command line, the window sends usage and crash reports, with no switch to turn them off; its README lists
+what's never sent, including file paths, folder names and your user name.
+
+[Repository and README](https://github.com/aoneahsan/windowsweep#readme) ·
+[Releases](https://github.com/aoneahsan/windowsweep/releases)
+
+## For macOS: macleanup
+
+A cleanup tool for macOS 11 Big Sur or later, on Apple Silicon and Intel, covering 28 sections from developer
+caches to unused apps. Every destructive section asks first by default, and `--dry-run` never touches the
+disk. The whole tool is two readable files you can inspect before running it. No telemetry, and no network
+call unless you ask it to check for an update. Some sections delete permanently, emptying the Trash among
+them, and the README marks each one.
+
+[Repository and README](https://github.com/aoneahsan/macleanup#readme)
+
+## For Linux: linux-cleanup
+
+A Bash cleanup tool for Linux, including WSL2 (Windows Subsystem for Linux, which runs Linux inside
+Windows). You run it with `npx linux-cleanup`. By default it deletes only files
+untouched for 100+ days, refuses to work inside your personal directories, and makes no network calls of any
+kind. Deletion is permanent. There's no undo, so start with `npx linux-cleanup --scan`, which prints what it
+would reclaim and deletes nothing.
+
+[Repository and README](https://github.com/aoneahsan/linux-cleanup#readme)
+
+## What do they show about how we work?
+
+The same habits run through client work. The windowsweep repository runs its checks on every change, and you
+can open [the check history](https://github.com/aoneahsan/windowsweep/actions) to see what ran and whether it
+passed. Its Windows app is live. It's our one desktop app today. If you need a desktop app or a command-line tool of
+your own, it goes through the same four steps as any project, and its brief gets its own written estimate.
+
+[Desktop apps on zaions.com](https://zaions.com/services/desktop-apps)
+
+**Next:** [Questions](./faq.mdx): short answers to what people ask before they hire us.
+
+<StartProject />
