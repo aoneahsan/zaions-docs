@@ -9,7 +9,7 @@ handover. Built with [Docusaurus](https://docusaurus.io) and published on GitHub
 Needs Node 20 or later and Yarn 4.
 
 ```bash
-yarn install
+yarn install --immutable
 yarn start      # dev server on http://localhost:5971
 yarn build      # production build into build/ (also checks every link)
 yarn serve      # serve that build on http://localhost:5971

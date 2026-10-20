@@ -1,8 +1,11 @@
 # Zaions docs — project guide (AGENTS.md)
 
-**Last Updated:** 2026-10-09. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
+**Last Updated:** 2026-10-20. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
 identical except this header line. Change both together. Fleet law auto-loads from `~/.claude/rules/`;
 never copy it here.
+
+Context, Gitignore, build and browser output were verified 2026-10-20. The next routine context optimization
+is eligible 2026-11-19. Fleet evidence lives in the private parent root's maintenance record.
 
 ## What this is
 
