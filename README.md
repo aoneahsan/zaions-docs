@@ -1,5 +1,7 @@
 # Zaions docs
 
+**Maintenance verified:** 2026-10-21. Immutable install, typecheck, production build, and desktop/mobile Chrome checks pass.
+
 The source of [docs.zaions.com](https://docs.zaions.com): how a Zaions project runs, from the brief to the
 handover. Built with [Docusaurus](https://docusaurus.io) and published on GitHub Pages.
 

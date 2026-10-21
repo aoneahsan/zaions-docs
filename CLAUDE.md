@@ -1,11 +1,11 @@
 # Zaions docs — project guide (CLAUDE.md)
 
-**Last Updated:** 2026-10-20. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
+**Last Updated:** 2026-10-21. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
 identical except this header line. Change both together. Fleet law auto-loads from `~/.claude/rules/`;
 never copy it here.
 
-Context, Gitignore, build and browser output were verified 2026-10-20. The next routine context optimization
-is eligible 2026-11-19. Fleet evidence lives in the private parent root's maintenance record.
+Context, Gitignore, build and browser output were verified 2026-10-21. The next routine context optimization
+is eligible 2026-11-20. Fleet evidence lives in the private parent root's maintenance record.
 
 ## What this is
 
@@ -43,6 +43,6 @@ See `README.md` → "Where things live". Owner-only steps: `docs/MANUAL-TASKS.md
 
 ## Stop-work Git gate
 
-<!-- RULE:stop-work-git-gate v2026-10-20 -->
+<!-- RULE:stop-work-git-gate v2026-10-21 -->
 
 Before stopping, commit every legitimate change and work-progress checkpoint in this repository and each independent nested repository, fetch and merge the designated upstream, push the documented working branch, then verify an empty worktree and `0 0` ahead/behind. Never stash, discard, reset, rebase, or force-push. If synchronization is blocked, report the exact repository, branch, blocker, and next action instead of calling the work complete. The full workflow remains authoritative in `~/.claude/rules/git-workflow.md`.
