@@ -5,6 +5,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     'intro',
     'brief',
+    'tours-and-how-it-works',
     'how-a-project-runs',
     'packages',
     'handover',
