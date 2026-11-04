@@ -1,0 +1,20 @@
+# Zaions docs
+
+> How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.
+
+zaions.com is the authority for current prices, payment methods and contact details: https://zaions.com/pricing, https://zaions.com/payments, https://zaions.com/contact.
+
+## Docs
+
+- [What you'll see, and what you'll own](https://docs.zaions.com/): How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.
+- [Writing your brief: what to include](https://docs.zaions.com/brief): What to put in a Zaions brief, field by field, with an example of a good one. Only your name and email are required; a napkin sketch is a fine start.
+- [How a project runs, from brief to handover](https://docs.zaions.com/how-a-project-runs): Every Zaions project runs in four steps: the brief, a written plan and estimate, a link to the working build at every milestone, then a full handover.
+- [Packages explained: which one fits you](https://docs.zaions.com/packages): Which Zaions package fits your project, what every package includes, what gets its own estimate, and the running costs your estimate lists beside the price.
+- [What you own at handover: the checklist](https://docs.zaions.com/handover): The code repository and design files move to you at handover, every account ends in your name, and your store listing ships from your own developer account.
+- [Paying an invoice: the reference to add](https://docs.zaions.com/paying-an-invoice): How to pay a Zaions invoice or estimate: pick a method on zaions.com/payments, copy the details, and add the reference from your invoice to the payment note.
+- [Open-source cleanup tools for developers](https://docs.zaions.com/open-source): Three MIT-licensed disk cleanup tools for developers from the Zaions team: windowsweep for Windows, macleanup for macOS and linux-cleanup for Linux.
+- [Questions before you hire us, answered](https://docs.zaions.com/faq): Short answers about Zaions: who owns the code, what an app costs, how progress is shown, scope changes, maintenance, running costs and where the team is.
+
+## Optional
+
+- [Sitemap](https://docs.zaions.com/sitemap.xml)
