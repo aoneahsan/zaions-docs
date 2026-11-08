@@ -11,6 +11,18 @@ const sidebars: SidebarsConfig = {
     'handover',
     'paying-an-invoice',
     'open-source',
+    {
+      type: 'category',
+      label: 'Compare',
+      link: {type: 'doc', id: 'compare/index'},
+      items: [
+        'compare/big-agency',
+        'compare/solo-freelancer',
+        'compare/ai-builder',
+        'compare/in-house',
+        'compare/hourly-developers',
+      ],
+    },
     'faq',
   ],
 };
