@@ -27,7 +27,7 @@ primary branch `main`. The approved copy lives in the parent planning kit (`../`
   `../docs/story/drafts/ui.md`. A page change starts there, through the story workflow; never invent copy.
 - **Figures live once** in `src/data/site.ts` (package floors, phone, product count). No price typed in MDX.
 - **Public repo:** no secret, `.env`, private repo link or internal tool name, anywhere.
-- **GitHub Pages only** via `.github/workflows/deploy-pages.yml`. Never Firebase.
+- **GitHub Pages only**, published by hand: `yarn build`, then copy `build/` onto the `gh-pages` branch (no GitHub Actions in his repos). Never Firebase.
 - **No refund, warning or "before you pay" copy** on any page; no `:::warning`/`:::danger` on Packages or
   Paying an invoice.
 - `docs/MANUAL-TASKS.md` is excluded from the build; keep the docs `exclude` list when editing config.
