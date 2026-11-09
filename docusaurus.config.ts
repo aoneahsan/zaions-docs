@@ -90,11 +90,16 @@ const config: Config = {
           customCss: './src/css/custom.css',
         },
         sitemap: {
-          changefreq: 'weekly',
-          priority: 0.5,
           lastmod: 'date',
-          ignorePatterns: ['/search', '/tags/**'],
+          changefreq: null,
+          priority: null,
+          ignorePatterns: ['/search', '/search/**', '/tags/**'],
           filename: 'sitemap.xml',
+          // Every URL dated: a doc by its git date, /sitemap and /feed by the newest doc (src/plugins/site-pages.ts).
+          createSitemapItems: async ({defaultCreateSitemapItems, ...params}) =>
+            (require('./src/plugins/site-pages') as typeof import('./src/plugins/site-pages')).withLastmod(
+              await defaultCreateSitemapItems(params),
+            ),
         },
       } satisfies Preset.Options,
     ],
@@ -118,7 +123,12 @@ const config: Config = {
     ],
   ],
 
-  plugins: [faqSchemaPlugin, ['@docusaurus/plugin-client-redirects', {redirects: []}]],
+  plugins: [
+    faqSchemaPlugin,
+    ['@docusaurus/plugin-client-redirects', {redirects: []}],
+    // /sitemap, /feed and /feed.xml (every frontend ships the four routes; src/plugins/site-pages.ts).
+    (require('./src/plugins/site-pages') as typeof import('./src/plugins/site-pages')).default,
+  ],
 
   themeConfig: {
     image: 'img/zaions-mark.png',
@@ -181,6 +191,13 @@ const config: Config = {
           items: [
             {label: 'Privacy Policy', href: agency.privacy},
             {label: 'Terms of Service', href: agency.terms},
+          ],
+        },
+        {
+          title: 'This site',
+          items: [
+            {label: 'Every page', to: '/sitemap'},
+            {label: 'What changed', to: '/feed'},
           ],
         },
       ],
