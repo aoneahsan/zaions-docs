@@ -123,6 +123,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/zaions-mark.png',
     metadata: [
+      { name: 'yandex-verification', content: 'ffc2cf741c9b8c71' },
       {name: 'theme-color', content: '#9434de'},
       {property: 'og:site_name', content: 'Zaions docs'},
       {name: 'twitter:card', content: 'summary'},
