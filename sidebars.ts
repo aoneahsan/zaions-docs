@@ -6,6 +6,7 @@ const sidebars: SidebarsConfig = {
     'intro',
     'brief',
     'tours-and-how-it-works',
+    'using-zaions-com',
     'how-a-project-runs',
     'packages',
     'handover',
