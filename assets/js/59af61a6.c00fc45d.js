@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzaions_docs=self.webpackChunkzaions_docs||[]).push([["235"],{5332(s){s.exports=JSON.parse('{"tags":[{"label":"zaions.com","permalink":"/tags/zaions-com","count":1},{"label":"tours","permalink":"/tags/tours","count":1},{"label":"getting started","permalink":"/tags/getting-started","count":1}]}')}}]);

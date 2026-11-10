@@ -5,8 +5,29 @@
     <link>https://docs.zaions.com/</link>
     <description>How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://docs.zaions.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Page tours and How working with Zaions works</title>
+      <link>https://docs.zaions.com/tours-and-how-it-works</link>
+      <guid isPermaLink="true">https://docs.zaions.com/tours-and-how-it-works</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Take a tour of any main page on zaions.com, or read How working with Zaions works: six steps, from picking a service to handover.</description>
+      <category>zaions.com</category>
+      <category>tours</category>
+      <category>getting started</category>
+    </item>
+    <item>
+      <title>Getting around zaions.com</title>
+      <link>https://docs.zaions.com/using-zaions-com</link>
+      <guid isPermaLink="true">https://docs.zaions.com/using-zaions-com</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How zaions.com looks on a phone, what the Appearance panel changes, what the first-visit notice bar says, and the Our own products cards above the footer.</description>
+      <category>zaions.com</category>
+      <category>phone</category>
+      <category>appearance</category>
+      <category>privacy</category>
+    </item>
     <item>
       <title>Other ways to get it built, compared</title>
       <link>https://docs.zaions.com/compare</link>
@@ -48,16 +69,6 @@
       <guid isPermaLink="true">https://docs.zaions.com/compare/solo-freelancer</guid>
       <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
       <description>How a Zaions project runs next to hiring one freelancer: which jobs one person covers well, and what a team adds for design, testing and the handover.</description>
-    </item>
-    <item>
-      <title>Page tours and How working with Zaions works</title>
-      <link>https://docs.zaions.com/tours-and-how-it-works</link>
-      <guid isPermaLink="true">https://docs.zaions.com/tours-and-how-it-works</guid>
-      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Take a tour of any main page on zaions.com, or read How working with Zaions works: six steps, from picking a service to handover.</description>
-      <category>zaions.com</category>
-      <category>tours</category>
-      <category>getting started</category>
     </item>
     <item>
       <title>What you&apos;ll see, and what you&apos;ll own</title>
