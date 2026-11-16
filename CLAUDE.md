@@ -1,5 +1,7 @@
 # Zaions docs — project guide (CLAUDE.md)
 
+<!-- fleet:node-26-13-1 v1 --> Node 26.13.1 LTS (.nvmrc), packages latest — 2026-11-16
+
 **Last Updated:** 2026-10-21. Claude Code reads `CLAUDE.md`; other agents read `AGENTS.md`. The two are
 identical except this header line. Change both together. Fleet law auto-loads from `~/.claude/rules/`;
 never copy it here.
