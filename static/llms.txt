@@ -18,3 +18,9 @@ zaions.com is the authority for current prices, payment methods and contact deta
 ## Optional
 
 - [Sitemap](https://docs.zaions.com/sitemap.xml)
+
+## Get Zaions
+
+- [All apps](https://docs.zaions.com/apps): every place Zaions is published.
+- [zaions.com](https://zaions.com)
+- [Android app on Google Play](https://play.google.com/store/apps/details?id=com.zaions.app)

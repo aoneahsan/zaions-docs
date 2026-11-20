@@ -4,6 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 import faqSchemaPlugin from './src/plugins/faq-schema';
 import rehypeTableLabels from './src/plugins/rehype-table-labels';
 import {agency, phone} from './src/data/site';
+import {OTHER_PLATFORMS} from './src/data/platforms';
 
 // Public site. Nothing here may carry a secret, a private repository or an internal tool name.
 const SITE_URL = 'https://docs.zaions.com';
@@ -159,6 +160,15 @@ const config: Config = {
         height: 32,
       },
       items: [
+        {
+          type: 'dropdown',
+          label: 'Get Zaions',
+          position: 'right',
+          items: [
+            ...OTHER_PLATFORMS.map((platform) => ({label: platform.name, href: platform.href})),
+            {label: 'All apps', to: '/apps'},
+          ],
+        },
         {type: 'search', position: 'right'},
         {
           href: agency.startProject,
@@ -171,6 +181,13 @@ const config: Config = {
     footer: {
       style: 'light',
       links: [
+        {
+          title: 'Get Zaions',
+          items: [
+            ...OTHER_PLATFORMS.map((platform) => ({label: platform.name, href: platform.href})),
+            {label: 'All apps', to: '/apps'},
+          ],
+        },
         {
           title: 'Company',
           items: [

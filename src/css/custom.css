@@ -435,3 +435,6 @@ h3,
     scroll-behavior: auto !important;
   }
 }
+
+/* The /apps page is reached from the navbar, footer and intro line, not the docs sidebar (2026-11-20). */
+.menu__list-item.hidden { display: none; }
