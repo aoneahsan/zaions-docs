@@ -5,8 +5,22 @@
     <link>https://docs.zaions.com/</link>
     <description>How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://docs.zaions.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What you&apos;ll see, and what you&apos;ll own</title>
+      <link>https://docs.zaions.com/</link>
+      <guid isPermaLink="true">https://docs.zaions.com/</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.</description>
+    </item>
+    <item>
+      <title>Get Zaions</title>
+      <link>https://docs.zaions.com/apps</link>
+      <guid isPermaLink="true">https://docs.zaions.com/apps</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Every place Zaions is published — zaions.com, the Android app on Google Play, and these docs.</description>
+    </item>
     <item>
       <title>Page tours and How working with Zaions works</title>
       <link>https://docs.zaions.com/tours-and-how-it-works</link>
@@ -69,13 +83,6 @@
       <guid isPermaLink="true">https://docs.zaions.com/compare/solo-freelancer</guid>
       <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
       <description>How a Zaions project runs next to hiring one freelancer: which jobs one person covers well, and what a team adds for design, testing and the handover.</description>
-    </item>
-    <item>
-      <title>What you&apos;ll see, and what you&apos;ll own</title>
-      <link>https://docs.zaions.com/</link>
-      <guid isPermaLink="true">https://docs.zaions.com/</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.</description>
     </item>
     <item>
       <title>Writing your brief: what to include</title>
