@@ -134,7 +134,7 @@ function FeedEntry({
  * runs.
  */
 export default function FeedPage({ site }: FeedPageProps): ReactNode {
-  const words = feedWords();
+  const words = feedWords(site.posts > 0);
   const format = useDateFormat();
   const feedUrl = useBaseUrl(FEED_FILE, { absolute: true });
 

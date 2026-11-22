@@ -2,12 +2,14 @@
  * The site-pages plugin: the readable `/sitemap` and `/feed` pages, the RSS 2.0 `/feed.xml`, and a truthful
  * `<lastmod>` on every `sitemap.xml` URL.
  *
- * The site has no blog, so the feed lists the docs pages themselves, each dated by the day its file last changed in
- * git (`showLastUpdateTime`; the site is built from a full local clone). A page with no git date fails the build:
- * a date is never invented. The pages and the XML read one list, so they cannot disagree.
+ * The feed lists the docs pages themselves, each dated by the day its file last changed in git (`showLastUpdateTime`;
+ * the site is built from a full local clone), and once the blog has posts, each post on the day it was published. A
+ * page with no git date fails the build: a date is never invented. The pages and the XML read one list, so they
+ * cannot disagree.
  */
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import type { BlogContent } from '@docusaurus/plugin-content-blog';
 import type { LoadedContent as DocsContent } from '@docusaurus/plugin-content-docs';
 import type { AllContent, LoadContext, Plugin } from '@docusaurus/types';
 
@@ -35,8 +37,10 @@ export interface SiteGroup {
 export interface SitePagesData {
   readonly home: SitePage;
   readonly groups: readonly SiteGroup[];
-  /** Every listed doc, newest change first: also the `/feed.xml` list. */
+  /** Every listed doc and blog post, newest change first: also the `/feed.xml` list. */
   readonly entries: readonly SiteEntry[];
+  /** How many of the entries are blog posts: none until the first post is published. */
+  readonly posts: number;
 }
 
 type DocsVersion = DocsContent['loadedVersions'][number];
@@ -141,6 +145,42 @@ function docsEntries(version: DocsVersion): SiteEntry[] {
       return { ...docPage(doc), date: new Date(doc.lastUpdatedAt).toISOString().slice(0, 10) };
     })
     .sort((a, b) => b.date.localeCompare(a.date) || a.permalink.localeCompare(b.permalink));
+}
+
+/**
+ * The blog posts the blog plugin loaded, each dated by the day it was published. Drafts are already gone from a
+ * production build; an unlisted post stays out, as it does from the blog's own lists. Empty while the blog is off.
+ *
+ * @param allContent - every plugin's loaded content
+ * @returns one entry per listed post, newest first
+ */
+function blogEntries(allContent: AllContent): SiteEntry[] {
+  const blog = allContent['docusaurus-plugin-content-blog']?.['default'] as BlogContent | undefined;
+  return (blog?.blogPosts ?? [])
+    .filter((post) => !post.metadata.unlisted)
+    .map(({ metadata }) => ({
+      permalink: metadata.permalink,
+      title: metadata.title,
+      description: metadata.description,
+      tags: [],
+      date: new Date(metadata.date).toISOString().slice(0, 10),
+    }))
+    .sort((a, b) => b.date.localeCompare(a.date) || a.permalink.localeCompare(b.permalink));
+}
+
+/**
+ * The blog as one `/sitemap` group, led by the blog's own page: empty until the blog has a post. Its title and
+ * description are the blog plugin's (`src/data/blog.ts`), so they have one source.
+ *
+ * @param allContent - every plugin's loaded content
+ * @param posts - the blog's entries
+ * @returns no group, or the Blog group
+ */
+function blogGroup(allContent: AllContent, posts: readonly SiteEntry[]): SiteGroup[] {
+  const blog = allContent['docusaurus-plugin-content-blog']?.['default'] as BlogContent | undefined;
+  if (blog === undefined || posts.length === 0) return [];
+  const index: SitePage = { permalink: '/blog', title: blog.blogTitle, description: blog.blogDescription, tags: [] };
+  return [{ key: 'blog', label: 'Blog', pages: [index, ...posts.map(({ date: _date, ...page }) => page)] }];
 }
 
 /**
@@ -254,10 +294,14 @@ export default function sitePages(context: LoadContext): Plugin {
         if (start === undefined) groups.unshift({ key: 'start', label: 'Start here', pages: extra });
         else groups[groups.indexOf(start)] = { ...start, pages: [...start.pages, ...extra] };
       }
+      const posts = blogEntries(allContent as AllContent);
       data = {
         home: { permalink: '/', title: context.siteConfig.title, description: context.siteConfig.tagline, tags: [] },
-        groups,
-        entries: docsEntries(version),
+        groups: [...groups, ...blogGroup(allContent as AllContent, posts)],
+        entries: [...docsEntries(version), ...posts].sort(
+          (a, b) => b.date.localeCompare(a.date) || a.permalink.localeCompare(b.permalink),
+        ),
+        posts: posts.length,
       };
       datedPages.clear();
       for (const entry of data.entries) datedPages.set(entry.permalink, entry.date);

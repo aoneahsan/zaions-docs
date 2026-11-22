@@ -1,13 +1,24 @@
+import {existsSync, readdirSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import faqSchemaPlugin from './src/plugins/faq-schema';
 import rehypeTableLabels from './src/plugins/rehype-table-labels';
+import {BLOG_DESCRIPTION, BLOG_PATH, BLOG_TITLE} from './src/data/blog';
 import {agency, phone} from './src/data/site';
 import {OTHER_PLATFORMS} from './src/data/platforms';
 
 // Public site. Nothing here may carry a secret, a private repository or an internal tool name.
 const SITE_URL = 'https://docs.zaions.com';
+
+/**
+ * Whether blog/ holds a post yet. Until it does, the blog stays off: an empty blog page would sit in sitemap.xml with
+ * nothing on it, and a Blog link would point at it. The first post added to blog/ turns on the blog, its RSS and Atom
+ * feeds, its search index, its dated sitemap entries, its place on /sitemap, /feed and /feed.xml, and the Blog links.
+ */
+const BLOG_DIR = fileURLToPath(new URL('./blog', import.meta.url));
+const HAS_POSTS = existsSync(BLOG_DIR) && readdirSync(BLOG_DIR).some((name) => name.endsWith('.md') || name.endsWith('.mdx'));
 
 const config: Config = {
   title: 'Zaions docs',
@@ -86,7 +97,32 @@ const config: Config = {
             'story/**',
           ],
         },
-        blog: false,
+        blog: HAS_POSTS && {
+          path: 'blog',
+          routeBasePath: BLOG_PATH.slice(1),
+          blogTitle: BLOG_TITLE,
+          blogDescription: BLOG_DESCRIPTION,
+          blogSidebarTitle: 'Recent posts',
+          blogSidebarCount: 10,
+          postsPerPage: 10,
+          showReadingTime: false,
+          // A post is dated by the day it was published (its own front matter), in the feed and in sitemap.xml.
+          showLastUpdateTime: false,
+          showLastUpdateAuthor: false,
+          // Every author and tag is defined once, in blog/authors.yml (and blog/tags.yml when a post uses one).
+          onInlineAuthors: 'throw',
+          onInlineTags: 'throw',
+          // markdown.format is 'detect', so a post written as .md marks its excerpt with <!-- truncate -->.
+          onUntruncatedBlogPosts: 'throw',
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+            title: BLOG_TITLE,
+            description: BLOG_DESCRIPTION,
+            copyright: 'Made by the Zaions team.',
+            language: 'en-US',
+          },
+        },
         pages: false,
         theme: {
           customCss: './src/css/custom.css',
@@ -95,7 +131,8 @@ const config: Config = {
           lastmod: 'date',
           changefreq: null,
           priority: null,
-          ignorePatterns: ['/search', '/search/**', '/tags/**'],
+          // The blog's tag, author, archive and later list pages only repeat its posts; each post is listed once.
+          ignorePatterns: ['/search', '/search/**', '/tags/**', '/blog/tags/**', '/blog/authors/**', '/blog/archive', '/blog/page/**'],
           filename: 'sitemap.xml',
           // Every URL dated: a doc by its git date, /sitemap and /feed by the newest doc (src/plugins/site-pages.ts).
           createSitemapItems: async ({defaultCreateSitemapItems, ...params}) =>
@@ -113,7 +150,8 @@ const config: Config = {
       {
         hashed: true,
         indexDocs: true,
-        indexBlog: false,
+        indexBlog: HAS_POSTS,
+        blogRouteBasePath: BLOG_PATH,
         indexPages: false,
         docsRouteBasePath: '/',
         language: ['en'],
@@ -160,6 +198,7 @@ const config: Config = {
         height: 32,
       },
       items: [
+        ...(HAS_POSTS ? [{to: BLOG_PATH, label: 'Blog', position: 'left' as const}] : []),
         {
           type: 'dropdown',
           label: 'Get Zaions',
@@ -215,6 +254,7 @@ const config: Config = {
         {
           title: 'This site',
           items: [
+            ...(HAS_POSTS ? [{label: 'Blog', to: BLOG_PATH}] : []),
             {label: 'Every page', to: '/sitemap'},
             {label: 'What changed', to: '/feed'},
           ],

@@ -6,19 +6,32 @@ import { translate } from '@docusaurus/Translate';
  * page itself, because its date is a `<time>` element. The sitemap page reads the title and meta description for
  * the feed's own card.
  *
+ * @param withPosts - whether the blog has posts, which then share the list with the docs pages
  * @returns the page's words
  */
-export function feedWords() {
+export function feedWords(withPosts = false) {
   return {
     title: translate({ id: 'docs.feed.title', message: 'What changed in the docs' }),
-    metaDescription: translate({
-      id: 'docs.feed.meta.description',
-      message: 'Every Zaions docs page with the day we last changed it, newest first, plus an RSS link for your feed reader.',
-    }),
-    intro: translate({
-      id: 'docs.feed.intro',
-      message: 'When we change how a project runs, the page that explains it changes the same week. Newest first.',
-    }),
+    metaDescription: withPosts
+      ? translate({
+          id: 'docs.feed.meta.description.with_posts',
+          message:
+            'Every Zaions docs page with the day we last changed it, and every post on the day we published it, newest first, plus an RSS link for your feed reader.',
+        })
+      : translate({
+          id: 'docs.feed.meta.description',
+          message: 'Every Zaions docs page with the day we last changed it, newest first, plus an RSS link for your feed reader.',
+        }),
+    intro: withPosts
+      ? translate({
+          id: 'docs.feed.intro.with_posts',
+          message:
+            'When we change how a project runs, the page that explains it changes the same week, and our posts show up here the day they go out. Newest first.',
+        })
+      : translate({
+          id: 'docs.feed.intro',
+          message: 'When we change how a project runs, the page that explains it changes the same week. Newest first.',
+        }),
     rssHeading: translate({ id: 'docs.feed.rss.heading', message: 'Get changes in your feed reader' }),
     rssBody: translate({
       id: 'docs.feed.rss.body',

@@ -96,8 +96,8 @@ function SitemapCard({ card }: { readonly card: Card }): ReactNode {
  * shared. Docusaurus prerenders the page, so the whole list is in the HTML before any script runs.
  */
 export default function SitemapPage({ site }: SitemapPageProps): ReactNode {
-  const words = sitemapWords();
-  const feed = feedWords();
+  const words = sitemapWords(site.posts > 0);
+  const feed = feedWords(site.posts > 0);
   const { selectMessage } = usePluralForm();
   const [query, setQuery] = useQueryString(QUERY_PARAM);
   const [text, setText] = useState(query);

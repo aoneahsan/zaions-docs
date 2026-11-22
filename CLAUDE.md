@@ -43,6 +43,14 @@ primary branch `main`. The approved copy lives in the parent planning kit (`../`
 
 See `README.md` → "Where things live". Owner-only steps: `docs/MANUAL-TASKS.md`.
 
+## Blog
+
+`blog/` holds the team's posts, one `.md` each (front matter: `slug`, `title`, `description`, `authors: [team]`, `image`,
+`date`). `markdown.format` is `detect`, so a `.md` post marks its excerpt with `<!-- truncate -->` after the opening line. Each
+image goes in `static/img/social/`. Empty, the blog stays off; the first post turns on the blog, its RSS and Atom feeds, its
+search index, its sitemap entries (a post dated by the day it was published, `/blog` by its newest post), its place on
+`/sitemap`, `/feed` and `/feed.xml`, and the Blog links. The words live in `src/data/blog.ts` (2026-11-22).
+
 ## Stop-work Git gate
 
 <!-- RULE:stop-work-git-gate v2026-10-21 -->

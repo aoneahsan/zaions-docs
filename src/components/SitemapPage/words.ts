@@ -5,9 +5,10 @@ import { translate } from '@docusaurus/Translate';
  * Docusaurus's `translate`, so a second locale needs a translation file and no edit here. Count messages are one
  * plural message each (`one|other`).
  *
+ * @param withPosts - whether the blog has posts, which feed.xml then carries beside the docs pages
  * @returns the page's words
  */
-export function sitemapWords() {
+export function sitemapWords(withPosts = false) {
   return {
     title: translate({ id: 'docs.sitemap.title', message: 'Every page of the Zaions docs' }),
     metaDescription: translate({
@@ -29,10 +30,15 @@ export function sitemapWords() {
     },
     feedXml: {
       label: translate({ id: 'docs.sitemap.file.feed_xml.label', message: 'feed.xml' }),
-      hint: translate({
-        id: 'docs.sitemap.file.feed_xml.hint',
-        message: 'Pages we changed, newest first, for a feed reader.',
-      }),
+      hint: withPosts
+        ? translate({
+            id: 'docs.sitemap.file.feed_xml.hint.with_posts',
+            message: 'Pages we changed and posts we published, newest first, for a feed reader.',
+          })
+        : translate({
+            id: 'docs.sitemap.file.feed_xml.hint',
+            message: 'Pages we changed, newest first, for a feed reader.',
+          }),
     },
     llms: {
       label: translate({ id: 'docs.sitemap.file.llms.label', message: 'llms.txt' }),
