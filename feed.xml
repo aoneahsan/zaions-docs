@@ -5,8 +5,50 @@
     <link>https://docs.zaions.com/</link>
     <description>How a Zaions project runs, step by step: writing the brief, the written estimate, milestone links, the packages, the handover and paying an invoice.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://docs.zaions.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Other ways to get it built, compared</title>
+      <link>https://docs.zaions.com/compare</link>
+      <guid isPermaLink="true">https://docs.zaions.com/compare</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project compares with a big agency, a solo freelancer, building it yourself with AI, hiring your own team or renting developers by the hour.</description>
+    </item>
+    <item>
+      <title>Coming from an AI app builder</title>
+      <link>https://docs.zaions.com/compare/ai-builder</link>
+      <guid isPermaLink="true">https://docs.zaions.com/compare/ai-builder</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project runs next to building your app yourself with an AI or no-code tool, and how to bring what you built to us as a brief.</description>
+    </item>
+    <item>
+      <title>Coming from a big agency</title>
+      <link>https://docs.zaions.com/compare/big-agency</link>
+      <guid isPermaLink="true">https://docs.zaions.com/compare/big-agency</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project runs next to a big agency: who answers your brief, how you see progress, what you own at the end, and when the big agency is the better choice.</description>
+    </item>
+    <item>
+      <title>Coming from hourly developers</title>
+      <link>https://docs.zaions.com/compare/hourly-developers</link>
+      <guid isPermaLink="true">https://docs.zaions.com/compare/hourly-developers</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project runs next to renting developers by the hour: who plans the work, what sets the price, and when hourly developers are the better choice.</description>
+    </item>
+    <item>
+      <title>Hiring your own team instead</title>
+      <link>https://docs.zaions.com/compare/in-house</link>
+      <guid isPermaLink="true">https://docs.zaions.com/compare/in-house</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project compares with hiring your own developers, and how a first version built by us hands over to the team you hire later.</description>
+    </item>
+    <item>
+      <title>Coming from a solo freelancer</title>
+      <link>https://docs.zaions.com/compare/solo-freelancer</link>
+      <guid isPermaLink="true">https://docs.zaions.com/compare/solo-freelancer</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How a Zaions project runs next to hiring one freelancer: which jobs one person covers well, and what a team adds for design, testing and the handover.</description>
+    </item>
     <item>
       <title>What you&apos;ll see, and what you&apos;ll own</title>
       <link>https://docs.zaions.com/</link>
@@ -41,48 +83,6 @@
       <category>phone</category>
       <category>appearance</category>
       <category>privacy</category>
-    </item>
-    <item>
-      <title>Other ways to get it built, compared</title>
-      <link>https://docs.zaions.com/compare</link>
-      <guid isPermaLink="true">https://docs.zaions.com/compare</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project compares with a big agency, a solo freelancer, building it yourself with AI, hiring your own team or renting developers by the hour.</description>
-    </item>
-    <item>
-      <title>Coming from an AI app builder</title>
-      <link>https://docs.zaions.com/compare/ai-builder</link>
-      <guid isPermaLink="true">https://docs.zaions.com/compare/ai-builder</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project runs next to building your app yourself with an AI or no-code tool, and how to bring what you built to us as a brief.</description>
-    </item>
-    <item>
-      <title>Coming from a big agency</title>
-      <link>https://docs.zaions.com/compare/big-agency</link>
-      <guid isPermaLink="true">https://docs.zaions.com/compare/big-agency</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project runs next to a big agency: who answers your brief, how you see progress, what you own at the end, and when the big agency is the better choice.</description>
-    </item>
-    <item>
-      <title>Coming from hourly developers</title>
-      <link>https://docs.zaions.com/compare/hourly-developers</link>
-      <guid isPermaLink="true">https://docs.zaions.com/compare/hourly-developers</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project runs next to renting developers by the hour: who plans the work, what sets the price, and when hourly developers are the better choice.</description>
-    </item>
-    <item>
-      <title>Hiring your own team instead</title>
-      <link>https://docs.zaions.com/compare/in-house</link>
-      <guid isPermaLink="true">https://docs.zaions.com/compare/in-house</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project compares with hiring your own developers, and how a first version built by us hands over to the team you hire later.</description>
-    </item>
-    <item>
-      <title>Coming from a solo freelancer</title>
-      <link>https://docs.zaions.com/compare/solo-freelancer</link>
-      <guid isPermaLink="true">https://docs.zaions.com/compare/solo-freelancer</guid>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
-      <description>How a Zaions project runs next to hiring one freelancer: which jobs one person covers well, and what a team adds for design, testing and the handover.</description>
     </item>
     <item>
       <title>Writing your brief: what to include</title>
