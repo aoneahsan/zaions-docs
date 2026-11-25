@@ -7,11 +7,31 @@
  * page with no git date fails the build: a date is never invented. The pages and the XML read one list, so they
  * cannot disagree.
  */
+import { readdirSync, readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import type { BlogContent } from '@docusaurus/plugin-content-blog';
 import type { LoadedContent as DocsContent } from '@docusaurus/plugin-content-docs';
 import type { AllContent, LoadContext, Plugin } from '@docusaurus/types';
+
+/**
+ * Docusaurus writes every route module's path into the client bundle, so the absolute path createData returns
+ * would publish this machine's folders and give each machine different chunk names. addRoute gets the alias.
+ */
+function generatedModule(generatedFilesDir: string, file: string): string {
+  return `@generated/${relative(generatedFilesDir, file).split(sep).join('/')}`;
+}
+
+/** Fails the build when any client bundle still carries this site's absolute path. */
+function assertNoLocalPaths(outDir: string, siteDir: string): void {
+  const jsDir = join(outDir, 'assets', 'js');
+  const forms = [siteDir.split(sep).join('/'), siteDir.split(sep).join('\\\\')];
+  for (const file of readdirSync(jsDir).filter((name) => name.endsWith('.js'))) {
+    const text = readFileSync(join(jsDir, file), 'utf8');
+    const found = forms.find((form) => text.includes(form));
+    if (found) throw new Error(`${file} carries the local path ${found}: pass createData paths to addRoute through generatedModule()`);
+  }
+}
 
 /** One page as its `/sitemap` card shows it. */
 export interface SitePage {
@@ -311,11 +331,12 @@ export default function sitePages(context: LoadContext): Plugin {
         }
         datedPages.set(served(page.permalink), new Date(page.lastUpdatedAt).toISOString().slice(0, 10));
       }
-      const site = await actions.createData('site-pages.json', JSON.stringify(data));
+      const site = generatedModule(context.generatedFilesDir, await actions.createData('site-pages.json', JSON.stringify(data)));
       actions.addRoute({ path: '/sitemap', component: '@site/src/components/SitemapPage', exact: true, modules: { site } });
       actions.addRoute({ path: '/feed', component: '@site/src/components/FeedPage', exact: true, modules: { site } });
     },
     async postBuild({ outDir, siteConfig }) {
+      assertNoLocalPaths(outDir, context.siteDir);
       if (data === undefined) throw new Error('site-pages: postBuild ran before the content loaded.');
       const url = new URL(siteConfig.baseUrl, siteConfig.url).toString();
       await writeFile(
