@@ -5,7 +5,8 @@ Fixed path in every repo (`aoneahsan-cccs-search-issue-remediation`). Newest fir
 
 ## zaions-docs#1 (and the docs.zaions.com boxes of zaions-portfolio-company-app#1) · 2026-11-27 · commit: see `git log -- docs/search-consoles/fix-log.md`
 
-Status: all three boxes fixed; live proof below once published. `yarn build` (zero warnings) ends with
+Status: live-verified, google-pending (commit `7e72502`, gh-pages `665b54b`, IndexNow 200): `/PACKAGES/` and `/tags/phone/`
+answer redirect pages to the live equivalents; FAQPage, sameAs and founder in the home's raw HTML; 0 unslashed sitemap URLs. `yarn build` (zero warnings) ends with
 `yarn seo:contract` (`src/plugins/seo-contract.mts`), which caught 6 tag pages with no meta description and failed on a
 planted noindex on `/faq/`, then passed. Rendered `/` at 1440.
 
