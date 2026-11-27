@@ -246,6 +246,8 @@ const config: Config = {
             {label: 'Zaions', href: agency.home},
             {label: 'Services', href: agency.services},
             {label: 'Pricing', href: agency.pricing},
+            {label: 'Products from Zaions', to: '/ecosystem'},
+            {label: 'About the developer', to: '/about-developer'},
           ],
         },
         {
@@ -273,7 +275,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Zaions`,
+      copyright: `© ${new Date().getFullYear()} Zaions · Zaions — developed with love by the Zaions team`,
     },
     tableOfContents: {
       minHeadingLevel: 2,

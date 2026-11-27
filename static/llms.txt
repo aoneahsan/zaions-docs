@@ -13,6 +13,8 @@ zaions.com is the authority for current prices, payment methods and contact deta
 - [What you own at handover: the checklist](https://docs.zaions.com/handover): The code repository and design files move to you at handover, every account ends in your name, and your store listing ships from your own developer account.
 - [Paying an invoice: the reference to add](https://docs.zaions.com/paying-an-invoice): How to pay a Zaions invoice or estimate: pick a method on zaions.com/payments, copy the details, and add the reference from your invoice to the payment note.
 - [Open-source cleanup tools for developers](https://docs.zaions.com/open-source): Three MIT-licensed disk cleanup tools for developers from the Zaions team: windowsweep for Windows, macleanup for macOS and linux-cleanup for Linux.
+- [Products from Zaions](https://docs.zaions.com/ecosystem/): The other live products the Zaions team builds and runs, with a sourced page and direct product link for each.
+- [Ahsan Mahmood and the Zaions team](https://docs.zaions.com/about-developer/): The owner, team vision and dated milestones of the rebuilt Zaions site.
 - [Questions before you hire us, answered](https://docs.zaions.com/faq): Short answers about Zaions: who owns the code, what an app costs, how progress is shown, scope changes, maintenance, running costs and where the team is.
 
 ## Optional

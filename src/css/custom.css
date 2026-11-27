@@ -5,6 +5,20 @@
  */
 
 /* Self-hosted OFL faces (static/fonts, licences beside them). */
+.zaions-ecosystem { background: var(--z-ink); color: var(--z-bg); padding-block: clamp(3rem, 7vw, 6rem); }
+.zaions-ecosystem .container { max-width: 1200px; }
+.zaions-ecosystem__head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; flex-wrap: wrap; }
+.zaions-ecosystem__head p { max-width: 52ch; }
+.zaions-ecosystem__controls { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; }
+.zaions-ecosystem__controls button { min-height: var(--z-tap); border: 1px solid currentColor; border-radius: var(--z-radius-control); padding: .5rem .9rem; background: transparent; color: inherit; cursor: pointer; }
+.zaions-ecosystem__controls button:focus-visible, .zaions-ecosystem a:focus-visible { outline: 3px solid var(--z-focus); outline-offset: 3px; }
+.zaions-ecosystem__card { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; background: var(--z-raised); color: var(--z-ink); border-radius: var(--z-radius-card); padding: 1.5rem; margin-block: 1.5rem; }
+.zaions-ecosystem__card h3, .zaions-ecosystem__card p { margin: 0; }
+.zaions-ecosystem__card img { object-fit: contain; }
+.zaions-ecosystem__links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.zaions-ecosystem__all { display: inline-flex; align-items: center; min-height: var(--z-tap); color: inherit; }
+@media (max-width: 48rem) { .zaions-ecosystem__card { grid-template-columns: 56px minmax(0, 1fr); } .zaions-ecosystem__links { grid-column: 1 / -1; } }
+
 @font-face {
   font-family: 'Mona Sans';
   src: url('/fonts/MonaSans-wdth-wght.ttf') format('truetype');

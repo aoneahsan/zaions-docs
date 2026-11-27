@@ -14,6 +14,22 @@ const sidebars: SidebarsConfig = {
     'open-source',
     {
       type: 'category',
+      label: 'Products from Zaions',
+      link: {type: 'doc', id: 'ecosystem/index'},
+      items: [
+        'ecosystem/achat', 'ecosystem/callvault', 'ecosystem/capacitor-auth-manager',
+        'ecosystem/clearhire', 'ecosystem/eatthis', 'ecosystem/empora',
+        'ecosystem/habitforge', 'ecosystem/labflow', 'ecosystem/lifewell',
+        'ecosystem/linux-cleanup', 'ecosystem/macleanup', 'ecosystem/native-update',
+        'ecosystem/netcage', 'ecosystem/pregnancypal', 'ecosystem/rentparty',
+        'ecosystem/smsapp', 'ecosystem/strata-storage', 'ecosystem/tilawah',
+        'ecosystem/trizlink', 'ecosystem/video-controls-plus', 'ecosystem/waylock',
+        'ecosystem/windowsweep', 'ecosystem/ztools',
+      ],
+    },
+    'about-developer',
+    {
+      type: 'category',
       label: 'Compare',
       link: {type: 'doc', id: 'compare/index'},
       items: [
