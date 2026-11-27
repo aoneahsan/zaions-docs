@@ -117,7 +117,8 @@ function docPage(doc: DocMetadata): SitePage {
     permalink: served(doc.permalink),
     title: doc.title,
     description: doc.description,
-    tags: doc.tags.map((tag) => tag.label),
+    // Topics are front matter, not tag routes: the /tags/* pages were retired (zaions-docs#1, SA-P32).
+    tags: Array.isArray((doc.frontMatter as {topics?: unknown}).topics) ? ((doc.frontMatter as {topics: unknown[]}).topics).map(String) : [],
   };
 }
 
@@ -275,7 +276,8 @@ export function withLastmod<Item extends { readonly url: string }>(items: readon
       .reduce<string | undefined>((max, [, date]) => (max === undefined || date > max ? date : max), undefined);
   const listsEverything = new Set(['/', '/sitemap', '/feed']);
   return items.map((item) => {
-    const pathname = new URL(item.url).pathname;
+    // Slashless, like the dated permalinks (`served`), whatever `trailingSlash` puts on the URL.
+    const pathname = served(new URL(item.url).pathname);
     const lastmod =
       datedPages.get(pathname) ??
       (listsEverything.has(pathname) ? newest(() => true) : newest((doc) => doc.startsWith(`${pathname}/`)));

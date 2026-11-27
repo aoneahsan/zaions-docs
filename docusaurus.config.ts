@@ -34,7 +34,9 @@ const config: Config = {
   url: SITE_URL,
   baseUrl: '/',
   // GitHub Pages serves /brief from brief.html with no redirect, so URLs stay exactly the approved slugs.
-  trailingSlash: false,
+  // Every page is `<route>/index.html`: GitHub Pages then 301s `/x` to `/x/`. With `false` it served `x.html` and
+  // 404ed every slashed link (`/PACKAGES/` and the rest, zaions-docs#1, SA-P26).
+  trailingSlash: true,
   organizationName: 'aoneahsan',
   projectName: 'zaions-docs',
 
@@ -94,6 +96,8 @@ const config: Config = {
             '**/__tests__/**',
             'MANUAL-TASKS.md',
             'PACKAGES.md',
+            // docs/search-consoles/ is the fleet's fixed-path record of search-console work, never a page.
+            'search-consoles/**',
             'story/**',
           ],
         },
@@ -132,7 +136,8 @@ const config: Config = {
           changefreq: null,
           priority: null,
           // The blog's tag, author, archive and later list pages only repeat its posts; each post is listed once.
-          ignorePatterns: ['/search', '/search/**', '/tags/**', '/blog/tags/**', '/blog/authors/**', '/blog/archive', '/blog/page/**'],
+          // Slashed forms too: under `trailingSlash: true` routes end in `/`.
+          ignorePatterns: ['/search', '/search/', '/search/**', '/tags/**', '/blog/tags/**', '/blog/authors/**', '/blog/archive', '/blog/archive/', '/blog/page/**'],
           filename: 'sitemap.xml',
           // Every URL dated: a doc by its git date, /sitemap and /feed by the newest doc (src/plugins/site-pages.ts).
           createSitemapItems: async ({defaultCreateSitemapItems, ...params}) =>
@@ -165,7 +170,15 @@ const config: Config = {
 
   plugins: [
     faqSchemaPlugin,
-    ['@docusaurus/plugin-client-redirects', {redirects: []}],
+    // Search Console still requests /PACKAGES/ (zaions-docs#1).
+    // Search Console still requests /PACKAGES/; the generated tag pages were retired (zaions-docs#1).
+    ['@docusaurus/plugin-client-redirects', {
+      redirects: [
+        {from: '/PACKAGES', to: '/packages'},
+        {from: ['/tags', '/tags/zaions-com', '/tags/phone', '/tags/appearance', '/tags/privacy'], to: '/using-zaions-com'},
+        {from: ['/tags/tours', '/tags/getting-started'], to: '/tours-and-how-it-works'},
+      ],
+    }],
     // /sitemap, /feed and /feed.xml (every frontend ships the four routes; src/plugins/site-pages.ts).
     (require('./src/plugins/site-pages') as typeof import('./src/plugins/site-pages')).default,
   ],
